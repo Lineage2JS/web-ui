@@ -64,6 +64,10 @@
           </div>
         </div>
         <div class="d-flex justify-content-between mt-2">
+          <div>Chronicle</div>
+          <div>C1</div>
+        </div>
+        <div class="d-flex justify-content-between mt-2">
           <div>Rates</div>
           <div>x1</div>
         </div>
