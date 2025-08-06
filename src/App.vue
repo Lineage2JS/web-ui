@@ -2,7 +2,7 @@
   <div id="app">
     <b-navbar type="light" variant="light">
       <b-container>
-        <b-navbar-brand href="#">Lineage2js</b-navbar-brand>
+        <b-navbar-brand href="#">Lineage2JS</b-navbar-brand>
 
         <div class="d-flex justify-content-between w-100">
           <div>
