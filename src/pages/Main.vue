@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-white" :style="{ backgroundImage: `linear-gradient(90deg, rgba(22, 25, 44, 0.8), rgba(47, 55, 75, 0.8)), url(${require('@/assets/main-bg.jpg')})`}">
-      <b-container class="p-0 mt-2">
+      <b-container class="p-0">
         <div class="d-flex align-items-center vh-100">
           <div>
             <h1>Enter the World of Lineage 2</h1>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="text-white" style="background-color: #23283a;">
-      <b-container>
+      <b-container class="p-0">
         <div class="d-flex align-items-center vh-100">
           <div class="w-100">
             <h2 class="text-center">Server status</h2>
@@ -94,7 +94,7 @@
     </div>
 
     <div class="text-white" style="background-color: #131529;">
-      <b-container>
+      <b-container class="p-0">
         <div class="d-flex align-items-center vh-100">
           <div class="w-100">
             <h2 class="text-center">Download & Updates</h2>

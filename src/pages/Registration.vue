@@ -1,17 +1,22 @@
 <template>
-  <div class="mt-5">
-    <h1>Registration</h1>
-    <h4>Create a new account</h4>
+  <div>
+    <b-container class="p-0">
+      <div class="d-flex align-items-center vh-100">
+        <div class="w-100">
+          <h1>Create a new account</h1>
 
-    <b-row class="mt-4">
-      <b-col cols="6">
-        <label>Login</label>
-        <b-input v-model="login" />
-        <label class="mt-2">Password</label>
-        <b-input v-model="password" type="password" />
-        <b-button class="mt-3" variant="primary" @click="registration">Регистрация</b-button>
-      </b-col>
-    </b-row>
+          <b-row class="mt-4">
+            <b-col cols="6">
+              <label>Login</label>
+              <b-input v-model="login" />
+              <label class="mt-2">Password</label>
+              <b-input v-model="password" type="password" />
+              <b-button class="mt-3" variant="primary" @click="registration">Регистрация</b-button>
+            </b-col>
+          </b-row>
+        </div>
+      </div>
+    </b-container>
   </div>
 </template>
 

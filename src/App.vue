@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar type="light" fixed="top">
-      <b-container>
+      <b-container class="p-0">
         <b-navbar-brand href="#" class="text-white">Lineage2JS</b-navbar-brand>
 
         <div class="d-flex justify-content-between w-100">
