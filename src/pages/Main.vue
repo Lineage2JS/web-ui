@@ -4,14 +4,14 @@
       <b-container class="p-0">
         <div class="d-flex align-items-center vh-100">
           <div>
-            <h1>Enter the World of Lineage 2</h1>
-            <div class="mt-4">Experience the ultimate MMORPG adventure with enhanced graphics, balanced gameplay and an active community</div>
+            <h1>{{ pageHeader }}</h1>
+            <div class="mt-4">{{ pageDesc }}</div>
             <div class="mt-5">
-              <b-button variant="primary" class="pt-2 pb-2 pr-4 pl-4 mr-3">
+              <b-button href="#downloads" variant="primary" class="pt-2 pb-2 pr-4 pl-4 mr-3">
                 <b-icon-download />
                 <span class="ml-2">Download</span>
               </b-button>
-              <b-button variant="success" class="pt-2 pb-2 pr-4 pl-4">
+              <b-button href="/#/register" variant="success" class="pt-2 pb-2 pr-4 pl-4">
                 <b-icon-play-fill />
                 <span class="ml-2">Start game</span>
               </b-button>
@@ -31,7 +31,7 @@
       </b-container>
     </div>
 
-    <div class="text-white" style="background-color: #23283a;">
+    <div class="text-white" style="background-size: cover;" :style="{ backgroundImage: `linear-gradient(90deg, rgba(22, 25, 44, 0.8), rgba(47, 55, 75, 0.8)), url(${require('@/assets/status-bg.jpg')})`}">
       <b-container class="p-0">
         <div class="d-flex align-items-center vh-100">
           <div class="w-100">
@@ -80,11 +80,11 @@
                 </div>
                 <div class="d-flex justify-content-between mt-2">
                   <div class="text-white-50">Chronicle</div>
-                  <div>C1</div>
+                  <div>{{ pageServerInfoVersion }}</div>
                 </div>
                 <div class="d-flex justify-content-between mt-2">
                   <div class="text-white-50">Rates</div>
-                  <div>x1</div>
+                  <div>{{ pageServerInfoRates }}</div>
                 </div>
               </b-card>
             </b-card-group>
@@ -93,7 +93,7 @@
       </b-container>
     </div>
 
-    <div class="text-white" style="background-color: #131529;">
+    <div id="downloads" class="text-white" style="background-size: cover;" :style="{ backgroundImage: `linear-gradient(90deg, rgba(22, 25, 44, 0.8), rgba(47, 55, 75, 0.8)), url(${require('@/assets/download-bg.jpg')})`}">
       <b-container class="p-0">
         <div class="d-flex align-items-center vh-100">
           <div class="w-100">
@@ -101,7 +101,7 @@
             <div class="text-center text-white-50">Get the latest client and patches to start your adventure</div>
             <b-card-group class="mt-4" deck>
               <b-card style="background-color: #23283a;">
-                <div class="text-center">
+                <div class="text-center mt-4">
                   <b-iconstack font-scale="3">
                     <b-icon stacked icon="circle-fill" variant="success"></b-icon>
                     <b-icon stacked icon="download" variant="light" scale="0.5"></b-icon>
@@ -111,20 +111,20 @@
                 <div class="mt-3">
                   <div class="d-flex justify-content-between">
                     <div class="text-white-50">Size</div>
-                    <div>1 GB</div>
+                    <div>{{ pageDownloadClientSize }}</div>
                   </div>
-                  <div class="d-flex justify-content-between">
+                  <!-- <div class="d-flex justify-content-between">
                     <div class="text-white-50">Version</div>
                     <div>1.0</div>
-                  </div>
+                  </div> -->
                 </div>
-                <b-button block variant="primary" class="mt-3">
+                <b-button :href="pageDownloadClientLink" block variant="primary" class="mt-3">
                   <b-icon-download />
                   <span class="ml-2">Download client</span>
                 </b-button>
               </b-card>
               <b-card style="background-color: #23283a;">
-                <div class="text-center">
+                <div class="text-center mt-4">
                   <b-iconstack font-scale="3">
                     <b-icon stacked icon="circle-fill" variant="success"></b-icon>
                     <b-icon stacked icon="download" variant="light" scale="0.5"></b-icon>
@@ -134,14 +134,14 @@
                 <div class="mt-3">
                   <div class="d-flex justify-content-between">
                     <div class="text-white-50">Size</div>
-                    <div>1 MB</div>
+                    <div>{{ pageDownloadPatchSize }}</div>
                   </div>
-                  <div class="d-flex justify-content-between">
+                  <!-- <div class="d-flex justify-content-between">
                     <div class="text-white-50">Version</div>
                     <div>0.1</div>
-                  </div>
+                  </div> -->
                 </div>
-                <b-button block variant="primary" class="mt-3">
+                <b-button :href="pageDownloadPatchLink" block variant="primary" class="mt-3">
                   <b-icon-download />
                   <span class="ml-2">Download patch</span>
                 </b-button>
@@ -156,9 +156,40 @@
 
 <script>
 import { Vue, Component } from 'vue-property-decorator';
+import config from './../config'
 
 @Component({})
 export default class Main extends Vue {
-  
+  get pageHeader() {
+    return config.mainPageHeader;
+  }
+
+  get pageDesc() {
+    return config.mainPageDesc;
+  }
+
+  get pageServerInfoVersion() {
+    return config.mainPageServerInfoVersion;
+  }
+
+  get pageServerInfoRates() {
+    return config.mainPageServerInfoRates;
+  }
+
+  get pageDownloadClientLink() {
+    return config.mainPageDownloadClientLink;
+  }
+
+  get pageDownloadPatchLink() {
+    return config.mainPageDownloadPatchLink;
+  }
+
+  get pageDownloadClientSize() {
+    return config.mainPageDownloadClientSize;
+  }
+
+  get pageDownloadPatchSize() {
+    return config.mainPageDownloadPatchSize;
+  }
 }
 </script>

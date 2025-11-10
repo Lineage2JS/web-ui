@@ -12,10 +12,10 @@
               <label class="mt-2">Password</label>
               <b-input v-model="password" type="password" />
               <label class="mt-2">Confirm password</label>
-              <b-input type="password" />
+              <b-input v-model="confirmPassword" type="password" />
               <label class="mt-2">Captcha</label>
-              <b-input v-model="password" type="password" />
-              <b-button class="mt-3" variant="primary" @click="registration">Регистрация</b-button>
+              <b-input v-model="captcha" />
+              <b-button class="mt-3" variant="primary" @click="registration">Registration</b-button>
             </b-col>
           </b-row>
         </div>
@@ -31,9 +31,11 @@ import { Vue, Component } from 'vue-property-decorator';
 export default class Register extends Vue {
   login = '';
   password = '';
+  confirmPassword = '';
+  captcha = '';
 
   async registration() {
-    const response = await fetch('http://localhost/registration/', {
+    const response = await fetch('http://localhost/account', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
