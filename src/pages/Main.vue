@@ -42,17 +42,22 @@
                 <div class="d-flex justify-content-between">
                   <div>Server status</div>
                   <div class="text-success font-weight-bold">
+                    <b-icon-hdd-stack-fill variant="success" />
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                  <div class="text-white-50">Login server</div>
+                  <div class="text-success font-weight-bold">
                     <b-icon-circle-fill variant="success" />
                     <span class="ml-2">Online</span>
                   </div>
                 </div>
                 <div class="d-flex justify-content-between mt-2">
-                  <div class="text-white-50">Ping</div>
-                  <div>12ms</div>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                  <div class="text-white-50">Version</div>
-                  <div>alpha</div>
+                  <div class="text-white-50">Game server</div>
+                  <div class="text-success font-weight-bold">
+                    <b-icon-circle-fill variant="success" />
+                    <span class="ml-2">Online</span>
+                  </div>
                 </div>
               </b-card>
               <b-card style="background-color: #393f54;">
@@ -75,7 +80,7 @@
                 <div class="d-flex justify-content-between">
                   <div>Server info</div>
                   <div class="text-success font-weight-bold">
-                    <b-icon-hdd-stack-fill variant="success" />
+                    <b-icon-info-circle-fill variant="success" />
                   </div>
                 </div>
                 <div class="d-flex justify-content-between mt-2">
