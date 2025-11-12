@@ -207,5 +207,32 @@ export default class Main extends Vue {
   get pageDownloadPatchSize() {
     return config.mainPageDownloadPatchSize;
   }
+
+  async checkLoginServer() {
+    const response = await fetch('http://localhost/status/login/');
+    const payload = await response.json();
+
+    if (payload.data === 'up') {
+      this.isLoginServerOnline = true;
+    } else {
+      this.isLoginServerOnline = false;
+    }
+  }
+
+  async checkGameServer() {
+    const response = await fetch('http://localhost/status/game/');
+    const payload = await response.json();
+
+    if (payload.data === 'up') {
+      this.isGameServerOnline = true;
+    } else {
+      this.isGameServerOnline = false;
+    }
+  }
+
+  mounted() {
+    this.checkLoginServer();
+    this.checkGameServer();
+  }
 }
 </script>
