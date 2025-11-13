@@ -2,11 +2,11 @@
   <div id="app">
     <b-navbar type="light" fixed="top">
       <b-container class="p-0">
-        <div class="d-flex justify-content-between w-100">
+        <div class="d-flex justify-content-between w-100 pt-1 pb-1">
           <b-navbar-brand href="#" class="text-white font-weight-bold">{{ projectName }}</b-navbar-brand>
           <b-nav>
-            <b-nav-item to="/" :active="this.$route.fullPath === '/'">Главная</b-nav-item>
-            <b-nav-item to="/register" :active="this.$route.fullPath === '/register'">Регистрация</b-nav-item>
+            <b-nav-item to="/" :active="this.$route.fullPath === '/'">Home</b-nav-item>
+            <b-nav-item to="/register" link-classes="btn btn-primary text-white" :active="this.$route.fullPath === '/register'">Create account</b-nav-item>
             <!-- <b-nav-item to="/login" :active="this.$route.fullPath === '/login'">Войти</b-nav-item> -->
           </b-nav>
         </div>

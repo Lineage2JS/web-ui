@@ -8,14 +8,24 @@
           <b-row class="mt-4">
             <b-col cols="6">
               <label>Login</label>
-              <b-input v-model="login" />
+              <b-form-input v-model="login" />
               <label class="mt-2">Password</label>
-              <b-input v-model="password" type="password" />
+              <b-form-input v-model="password" type="password" />
               <label class="mt-2">Confirm password</label>
-              <b-input v-model="confirmPassword" type="password" />
+              <b-form-input v-model="confirmPassword" type="password" />
               <label class="mt-2">Captcha</label>
-              <b-input v-model="captcha" />
-              <b-button class="mt-3" variant="primary" @click="registration">Registration</b-button>
+              <div class="d-flex">
+                <div class="p-2 rounded w-100 mr-1 text-center" style="background-color: #f0f0f0;">
+                  <div v-html="captcha"></div>
+                </div>
+                <b-button variant="info" class="pl-4 pr-4" @click="getCaptcha">
+                  <b-icon-arrow-repeat />
+                </b-button>
+              </div>
+              <b-form-input class="mt-2" v-model="captchaCode" />
+              <div class="d-flex justify-content-end">
+                <b-button class="mt-3" variant="primary" @click="createAccount">Create</b-button>
+              </div>
             </b-col>
           </b-row>
         </div>
@@ -32,9 +42,11 @@ export default class Register extends Vue {
   login = '';
   password = '';
   confirmPassword = '';
+  captchaId = '';
+  captchaCode = '';
   captcha = '';
 
-  async registration() {
+  async createAccount() {
     const response = await fetch('http://localhost/account', {
       method: 'POST',
       headers: {
@@ -42,18 +54,38 @@ export default class Register extends Vue {
       },
       body: JSON.stringify({
         login: this.login,
-        password: this.password
+        password: this.password,
+        captchaId: this.captchaId,
+        captchaCode: this.captchaCode,
       })
     });
     const payload = await response.json();
 
     if (payload.status === 'failed') {
-      this.$bvModal.msgBoxOk('Такой аккаунт уже существует', { centered: true });
+      this.$bvModal.msgBoxOk(payload.message, { centered: true });
+      this.captchaCode = '';
+      this.getCaptcha();
     }
 
     if (payload.status === 'success') {
-      this.$bvModal.msgBoxOk('Регистрация успешна', { centered: true });
+      this.$bvModal.msgBoxOk(payload.message, { centered: true });
+      this.login = '';
+      this.password = '';
+      this.confirmPassword = '';
+      this.captchaCode = '';
     }
+  }
+
+  async getCaptcha() {
+    const response = await fetch('http://localhost/captcha');
+    const payload = await response.json();
+
+    this.captchaId = payload.data.captchaId;
+    this.captcha = payload.data.captcha;
+  }
+
+  mounted() {
+    this.getCaptcha();
   }
 }
 </script>
