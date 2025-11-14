@@ -23,5 +23,9 @@ export default new VueRouter({
     //   path: '/login/',
     //   component: Login
     // }
-  ]
+  ],
+  scrollBehavior() {        
+    // Default - scroll up
+    return { x: 0, y: 0 }
+  }
 });
