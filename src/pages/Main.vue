@@ -7,7 +7,7 @@
             <h1>{{ pageHeader }}</h1>
             <div class="mt-4">{{ pageDesc }}</div>
             <div class="mt-5">
-              <b-button href="#downloads" variant="primary" class="pt-2 pb-2 pr-4 pl-4 mr-3">
+              <b-button @click="scrollToSection('downloads')" variant="primary" class="pt-2 pb-2 pr-4 pl-4 mr-3">
                 <b-icon-download />
                 <span class="ml-2">Download</span>
               </b-button>
@@ -140,7 +140,7 @@
                 <div class="text-center mt-4">
                   <b-iconstack font-scale="3">
                     <b-icon stacked icon="circle-fill" variant="success"></b-icon>
-                    <b-icon stacked icon="download" variant="light" scale="0.5"></b-icon>
+                    <b-icon stacked icon="wrench" variant="light" scale="0.5"></b-icon>
                   </b-iconstack>
                 </div>
                 <h3 class="text-center mt-3">Latest patch</h3>
@@ -175,6 +175,19 @@ import config from './../config'
 export default class Main extends Vue {
   isLoginServerOnline = false;
   isGameServerOnline = false;
+
+  scrollToSection(elementId) {
+    const element = document.getElementById(elementId);
+    
+    if (element) {
+      const offsetTop = element.offsetTop;
+        
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
 
   get pageHeader() {
     return config.mainPageHeader;
